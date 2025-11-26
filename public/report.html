@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Report an Issue</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+
+    <header class="navbar">
+      <h1 class="logo">🚧 Report an Issue</h1>
+      <a class="report-btn" href="index.html">← Back to Issues</a>
+    </header>
+
+    <main class="container form-container">
+      <h2 class="section-title">Submit a New Issue</h2>
+
+      <form id="report-form" class="issue-form">
+
+        <label>
+          Title
+          <input type="text" name="title" required />
+        </label>
+
+        <label>
+          Description
+          <textarea name="description" rows="4" required></textarea>
+        </label>
+
+        <label>
+          Category
+          <select name="category" required>
+            <option value="" disabled selected>Select a category</option>
+            <option value="Pothole">Pothole</option>
+            <option value="Graffiti">Graffiti</option>
+            <option value="Streetlight">Broken Streetlight</option>
+            <option value="Trash">Trash / Litter</option>
+            <option value="Sidewalk">Sidewalk Damage</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+
+        <label>
+          Photo (optional)
+          <input type="file" id="photoInput" accept="image/*" />
+        </label>
+
+        <button class="submit-btn" type="submit">Submit Issue</button>
+
+      </form>
+    </main>
+
+    <script src="js/report.js"></script>
+  </body>
+</html>
