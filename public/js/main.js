@@ -13,15 +13,26 @@ async function getIssues() {
       const card = document.createElement("div");
       card.classList.add("issue-card");
       issuesContainer.append(card);
-      const status = result[i].status
+      const id = result[i].id;
+      card.setAttribute("data-id", id);
+      const status = result[i].status;
       card.innerHTML = `<h3>${result[i].title}</h3>
       <p>${result[i].description}</p>
-      <p class='status ${status.toLowerCase()}'>${status}</p>`
+      <p class='status ${status.toLowerCase()}'>${status}</p>`;
     }
+    card.addEventListener("click", (e) => {
+      const el = e.currentTarget;
+    });
   } catch (error) {
     console.error(error.message);
   }
 }
 
-getIssues()
+async function getIssue(e) {
+  const clickedElememt = e.target.value;
+  console.log(clickedElememt);
+  const issue = document.getElementById();
+}
 
+getIssue();
+getIssues();

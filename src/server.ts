@@ -39,16 +39,20 @@ app.post("/api/issues", (req: Request, res: Response) => {
     category: req.body.category,
     status: "Submitted",
     createdAt: new Date().toISOString(),
-    photo: req.body.photo
+    photo: req.body.photo,
   };
   issues.push(newIssue);
   try {
     fs.writeFileSync(issuesPath, JSON.stringify(issues, null, 2));
-    res.send({ success: false });
-  } catch (error) {
     res.send({ success: true });
+  } catch (error) {
+    res.send({ success: false });
   }
 });
+
+app.get('/api/issues/:id', (req:Request,res:Response)=>{
+  
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
