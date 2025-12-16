@@ -115,5 +115,14 @@
     "status": "Submitted",
     "createdAt": "2025-11-30T19:47:17.792Z",
     "photo": null
+  },
+  {
+    "id": 14,
+    "title": "trash over there",
+    "description": "there's trash over there",
+    "category": "Trash",
+    "status": "Submitted",
+    "createdAt": "2025-11-30T21:41:52.346Z",
+    "photo": null
   }
 ]

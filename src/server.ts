@@ -50,9 +50,24 @@ app.post("/api/issues", (req: Request, res: Response) => {
   }
 });
 
-app.get('/api/issues/:id', (req:Request,res:Response)=>{
-  
-})
+app.get("/api/issues/:id", (req: Request, res: Response) => {
+  const issueId = req.params.id;
+  console.log("id is: ", Number(issueId));
+
+  const issuesPath = path.join(__dirname, "..", "issues.json");
+  const dataFile = fs.readFileSync(issuesPath, "utf8");
+  const issues = JSON.parse(dataFile);
+  try {
+    const issue = issues.find((i: Issue) => i.id === Number(issueId));
+    if (issue) {
+      res.send({ success: true, issue });
+    } else {
+      res.status(404).json({ error: "Issue not found" });
+    }
+  } catch (error) {
+    res.send({ success: false });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
